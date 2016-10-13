@@ -243,7 +243,7 @@ class DataProcessor {
     */
     function output_as_xml($results){
         LogMaster::log("Edit operation finished",$results);
-        ob_clean();
+        if (ob_get_contents()) ob_clean();
         header("Content-type:text/xml");
         echo "<?xml version='1.0' ?>";
         echo "<data>";
